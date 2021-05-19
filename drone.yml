@@ -21,6 +21,7 @@ steps:
   - curl -sSL https://cli.openfaas.com | sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - cd testfun/
+  - ls
   - faas build -f hello-python.yml
   - docker images
   - faas push -f hello-python.yml
