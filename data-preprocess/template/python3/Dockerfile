@@ -19,7 +19,7 @@ RUN chmod +x /usr/bin/fwatchdog
 WORKDIR /home/app/
 
 # User define
-RUN pip install pandas
+# RUN pip install pandas
 
 COPY index.py           .
 COPY requirements.txt   .
