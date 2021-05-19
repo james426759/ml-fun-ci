@@ -20,9 +20,10 @@ steps:
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - faas build -f testfun/hello-python.yml
+  - cd testfun/
+  - faas build -f hello-python.yml
   - docker images
-  - faas push -f testfun/hello-python.yml
+  - faas push -f hello-python.yml
 
 services:
 - name: docker
