@@ -21,10 +21,8 @@ steps:
   - curl -sSL https://cli.openfaas.com | sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   - docker build -t james759426/test:0.0.1 .
-  # - docker pull ubuntu:18.04
-  # - cd data-preprocess/
-  # - faas build -f stack.yml
   - docker images
+  - docker push james759426/test:0.0.1
 
 services:
 - name: docker
