@@ -1,0 +1,41 @@
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+- name: test-mlfun
+  image: docker:stable-dind
+  commands:
+  - echo success
+
+steps:
+- name: build-push-mlfun
+  image: docker:stable-dind
+  privileged: true
+  volumes:
+  - name: dockersock
+    path: /var/run
+  environment:
+    DOCKER_USER:
+      from_secret: DOCKER_USER
+    DOCKER_PASSWORD:
+      from_secret: DOCKER_PASSWORD
+  commands:
+  - sleep 5
+  - apk add curl
+  - curl -sSL https://cli.openfaas.com | sh
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - cd data-preprocess/
+  - ./test.sh
+
+services:
+- name: docker
+  image: docker:stable-dind
+  privileged: true
+  volumes:
+  - name: dockersock
+    path: /var/run
+volumes:
+- name: dockersock
+  temp: {}

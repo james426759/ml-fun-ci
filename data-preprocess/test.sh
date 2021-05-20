@@ -1,2 +1,2 @@
-faas build -f ./data-preprocess/stack.yml
-faas push -f ./data-preprocess/stack.yml
+faas build -f stack.yml
+faas push -f stack.yml
