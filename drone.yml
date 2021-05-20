@@ -9,7 +9,6 @@ steps:
   commands:
   - echo success
 
-steps:
 - name: build-push-mlfun
   image: docker:stable-dind
   privileged: true
