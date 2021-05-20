@@ -22,7 +22,7 @@ steps:
     DOCKER_PASSWORD:
       from_secret: DOCKER_PASSWORD
   commands:
-  - sleep 5
+  - sleep 5 #
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
