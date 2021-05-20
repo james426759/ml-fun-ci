@@ -4,7 +4,13 @@ type: kubernetes
 name: default
 
 steps:
-- name: build-push
+- name: test-mlfun
+  image: docker:stable-dind
+  commands:
+  - echo success
+
+steps:
+- name: build-push-mlfun
   image: docker:stable-dind
   privileged: true
   volumes:
@@ -20,12 +26,8 @@ steps:
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - ls
-  - cd testfun/
-  - ls
-  - faas build -f hello-python.yml
-  - docker images
-  - faas push -f hello-python.yml
+  - cd data-preprocess/
+  - ./test.sh
 
 services:
 - name: docker
