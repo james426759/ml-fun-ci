@@ -4,10 +4,10 @@ type: kubernetes
 name: default
 
 steps:
-- name: test-mlfun
-  image: docker:stable-dind
-  commands:
-  - echo success
+# - name: test-mlfun
+#   image: docker:stable-dind
+#   commands:
+#   - echo success
 
 - name: build-push-mlfun
   image: docker:stable-dind
