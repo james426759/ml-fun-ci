@@ -27,6 +27,8 @@ steps:
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
   # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - cd load-data/
+  - faas build -f stack.yml
   # - cd data-preprocess/
   # - ./test.sh
 
@@ -43,9 +45,8 @@ steps:
       from_secret: DOCKER_PASSWORD
   commands:
   - sleep 5 # give docker enough time to start
-  - faas
+  - docker images
   # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  # - cd data-preprocess/
   # - ./test.sh
 
 services:
@@ -57,4 +58,5 @@ services:
     path: /var/run
 volumes:
 - name: dockersock
-  temp: {}
+  host:
+      path: /var/run/docker.sock
