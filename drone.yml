@@ -16,15 +16,9 @@ steps:
   volumes:
   - name: dockersock
     path: /var/run/
-  environment:
-    DOCKER_USER:
-      from_secret: DOCKER_USER
-    DOCKER_PASSWORD:
-      from_secret: DOCKER_PASSWORD
   commands:
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
-  - docker images
   - cd data-preprocess/
   - ./faas-tool.sh
 
@@ -41,7 +35,7 @@ steps:
       from_secret: DOCKER_PASSWORD
   commands:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker push james759426/load-data:0.0.1
+  - docker push james759426/load-data-ci:0.0.1
 volumes:
 - name: dockersock
   host:

@@ -8,10 +8,10 @@ functions:
   #   handler: ./load-data
   #   image: james759426/load-data:0.0.1
 
-  # time-parser-ci:
-  #   lang: python3
-  #   handler: ./time-parser
-  #   image: james759426/time-parser-ci:0.0.1
+  time-parser-ci:
+    lang: python3
+    handler: ./time-parser
+    image: james759426/time-parser-ci:0.0.1
 
   # data-clean:
   #   lang: python3
