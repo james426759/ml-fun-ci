@@ -16,7 +16,7 @@ steps:
   privileged: true
   volumes:
   - name: dockersock
-    path: /var/run/docker.sock
+    path: /var/run/
   environment:
     DOCKER_USER:
       from_secret: DOCKER_USER
@@ -31,20 +31,20 @@ steps:
   - cd data-preprocess/
   - ./faas-tool.sh
 
-- name: push-ml-fun
-  image: docker:stable-dind
-  privileged: true
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
-  environment:
-    DOCKER_USER:
-      from_secret: DOCKER_USER
-    DOCKER_PASSWORD:
-      from_secret: DOCKER_PASSWORD
-  commands:
-  - sleep 5 # give docker enough time to start
-  - docker images
+# - name: push-ml-fun
+#   image: docker:stable-dind
+#   privileged: true
+#   volumes:
+#   - name: dockersock
+#     path: /var/run/docker.sock
+#   environment:
+#     DOCKER_USER:
+#       from_secret: DOCKER_USER
+#     DOCKER_PASSWORD:
+#       from_secret: DOCKER_PASSWORD
+#   commands:
+#   - sleep 5 # give docker enough time to start
+#   - docker images
   # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   # - ./test.sh
 
@@ -58,4 +58,4 @@ steps:
 volumes:
 - name: dockersock
   host:
-    path: /var/run/docker.sock
+    path: /var/run/
