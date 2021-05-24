@@ -30,7 +30,7 @@ steps:
   # - cd data-preprocess/
   # - ./test.sh
 
-name: push-mlfun
+- name: push-mlfun
   image: docker:stable-dind
   privileged: true
   volumes:
@@ -44,8 +44,6 @@ name: push-mlfun
   commands:
   - sleep 5 # give docker enough time to start
   - faas
-  # - apk add curl
-  # - curl -sSL https://cli.openfaas.com | sh
   # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   # - cd data-preprocess/
   # - ./test.sh
