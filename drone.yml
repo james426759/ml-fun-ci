@@ -2,7 +2,6 @@
 kind: pipeline
 type: kubernetes
 name: default
-
 steps:
 - name: test-ml-fun
   image: python:3.7-alpine
@@ -42,7 +41,7 @@ steps:
       from_secret: DOCKER_PASSWORD
   commands:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker push james759426/load-data-524:0.0.1
+  - docker push james759426/load-data:0.0.1
 volumes:
 - name: dockersock
   host:
