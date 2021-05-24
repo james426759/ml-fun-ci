@@ -23,7 +23,6 @@ steps:
     DOCKER_PASSWORD:
       from_secret: DOCKER_PASSWORD
   commands:
-  - sleep 5 # give docker enough time to start
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
   - docker images
@@ -42,10 +41,8 @@ steps:
     DOCKER_PASSWORD:
       from_secret: DOCKER_PASSWORD
   commands:
-  - sleep 5 # give docker enough time to start
-  - docker images
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - faas
+  - docker push james759426/load-data-524:0.0.1
 volumes:
 - name: dockersock
   host:
