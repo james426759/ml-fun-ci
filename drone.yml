@@ -26,11 +26,10 @@ steps:
   - sleep 5 # give docker enough time to start
   - apk add curl
   - curl -sSL https://cli.openfaas.com | sh
-  # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - cd load-data/
-  - faas build -f stack.yml
-  # - cd data-preprocess/
-  # - ./test.sh
+  - docker images
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - cd data-preprocess/
+  - ./faas-tool.sh
 
 - name: push-mlfun
   image: docker:stable-dind
