@@ -16,7 +16,7 @@ steps:
   privileged: true
   volumes:
   - name: dockersock
-    path: /var/run
+    path: /var/run/docker.sock
   environment:
     DOCKER_USER:
       from_secret: DOCKER_USER
@@ -54,8 +54,8 @@ services:
   privileged: true
   volumes:
   - name: dockersock
-    path: /var/run
+    path: /var/run/docker.sock
 volumes:
 - name: dockersock
   host:
-    path: /var/run/
+    path: /var/run/docker.sock
