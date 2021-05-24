@@ -30,7 +30,7 @@ steps:
   # - cd data-preprocess/
   # - ./test.sh
 
-name: build-mlfun
+name: push-mlfun
   image: docker:stable-dind
   privileged: true
   volumes:
