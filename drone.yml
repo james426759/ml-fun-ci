@@ -8,6 +8,9 @@ steps:
   image: python:3.7-alpine
   commands:
   - ls
+  - cd testfun/
+  - pip install -r requirements.txt
+  - ls
   - pwd
 
 - name: test-build-push-mlfun
