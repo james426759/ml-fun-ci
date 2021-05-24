@@ -48,13 +48,13 @@ steps:
   # - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
   # - ./test.sh
 
-services:
-- name: docker
-  image: docker:stable-dind
-  privileged: true
-  volumes:
-  - name: dockersock
-    path: /var/run/docker.sock
+# services:
+# - name: docker
+#   image: docker:stable-dind
+#   privileged: true
+#   volumes:
+#   - name: dockersock
+#     path: /var/run/docker.sock
 volumes:
 - name: dockersock
   host:
