@@ -35,7 +35,7 @@ steps:
       from_secret: DOCKER_PASSWORD
   commands:
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker push james759426/load-data-ci:0.0.1
+  - docker push james759426/time-parser-ci:0.0.1
 volumes:
 - name: dockersock
   host:
