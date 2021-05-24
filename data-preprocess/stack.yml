@@ -6,7 +6,7 @@ functions:
   load-data:
     lang: python3
     handler: ./load-data
-    image: james759426/load-data:0.0.1
+    image: james759426/load-data-524:0.0.1
 
   # time-parser-ci:
   #   lang: python3
